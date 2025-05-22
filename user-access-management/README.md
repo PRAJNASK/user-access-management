@@ -1,57 +1,52 @@
-# 🛡️ User Access Management System
+# User Access Management System
 
-A backend system for managing software and role-based user access.
+## Description
 
----
+This is a full-stack User Access Management System designed to allow employees to request access to software, managers to approve or reject these requests, and admins to manage the software list. The system features role-based access control and JWT authentication.
 
-## 📡 API Summary
+## Features
 
-### ➕ Admin: Create SoftwarePOST http://localhost:5000/api/software/create
-Headers:
-Authorization: Bearer <admin_token>
-Body:
-{
-"name": "Photoshop",
-"description": "Image editing software",
-"accessLevels": ["Read", "Write", "Admin"]
-}
-GET http://localhost:5000/api/software
-Headers:
-Authorization: Bearer <token>
-**Description:** Admins can create new software records.
+*   **User Roles:** Admin, Manager, Employee.
+*   **Authentication:** User registration, login, and JWT-based session management.
+*   **Admin Dashboard:**
+    *   View all users.
+    *   List all software.
+    *   Add new software.
+*   **Manager Dashboard:**
+    *   View pending software access requests.
+    *   Approve or reject requests.
+*   **Employee Dashboard:**
+    *   View available software.
+    *   Request access to software.
+    *   View the status of their requests.
+*   **Protected Routes:** Access to different parts of the application is restricted based on user roles.
 
-### 🧾 Headers
-```http
-Authorization: Bearer <admin_token>
-{
-  "name": "Photoshop",
-  "description": "Image editing software",
-  "accessLevels": ["Read", "Write", "Admin"]
-}
-{
-  "id": 1,
-  "name": "Photoshop",
-  "description": "Image editing software",
-  "accessLevels": ["Read", "Write", "Admin"]
-}
-400 Bad Request: Invalid input  
-401 Unauthorized: No or invalid token  
-403 Forbidden: User is not Admin  
-500 Internal Server Error
-Authorization: Bearer <token>
-[
-  {
-    "id": 1,
-    "name": "Photoshop",
-    "description": "Image editing software",
-    "accessLevels": ["Read", "Write", "Admin"]
-  },
-  {
-    "id": 2,
-    "name": "VS Code",
-    "description": "Code editor",
-    "accessLevels": ["Read", "Write"]
-  }
-]
-401 Unauthorized: No or invalid token  
-500 Internal Server Error
+## Tech Stack
+
+**Backend:**
+*   Node.js
+*   Express.js
+*   TypeScript
+*   TypeORM
+*   PostgreSQL
+*   JSON Web Tokens (JWT) for authentication
+
+**Frontend:**
+*   React
+*   Vite
+*   TypeScript
+*   React Router
+*   Axios (for API calls)
+
+**Development:**
+*   `concurrently` for running backend and frontend simultaneously.
+
+## Project Structure
+Admin Login : Admin
+              Admin@123
+
+Employee Login : Employee
+                 Employe@123
+
+Manager Login : Manager
+                Manager@123
