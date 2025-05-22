@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.18",
+    "concurrently": "^8.2.2"
+  },
+  "scripts": {
+    "dev": "npx concurrently \"npm run start --prefix backend\" \"npm run start --prefix frontend\""
+  }
+}
